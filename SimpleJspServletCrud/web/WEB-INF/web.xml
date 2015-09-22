@@ -4,9 +4,17 @@
         <servlet-name>UserController</servlet-name>
         <servlet-class>edu.cecyt9.controller.UserController</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>VerSession</servlet-name>
+        <servlet-class>edu.cecyt9.controller.VerSession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
         <url-pattern>/UserController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerSession</servlet-name>
+        <url-pattern>/VerSession</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

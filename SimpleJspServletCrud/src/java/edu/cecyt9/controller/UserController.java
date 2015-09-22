@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.cecyt9.dao.UserDao;
 import edu.cecyt9.model.User;
+import java.io.PrintWriter;
+import java.util.Random;
+import javax.servlet.http.HttpSession;
 
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -28,6 +31,14 @@ public class UserController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward="";
         String action = request.getParameter("action");
+        
+        HttpSession misession= request.getSession(true);
+        Random rnd = new Random();
+        int numberSession = rnd.nextInt(100);
+        misession.setAttribute("numberSession",numberSession);
+        PrintWriter pw= response.getWriter();
+        pw.println("<html><body>Pagina en session</body></html>");
+        pw.close();
 
         if (action.equalsIgnoreCase("delete")){
             String userId = request.getParameter("userId");
